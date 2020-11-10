@@ -11,12 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <stddef.h>
-#include <stdint.h>
 
-size_t	ft_strlen(const char *s)
+size_t		ft_strlen(const char *s)
 {
 	size_t n;
 
