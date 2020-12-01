@@ -34,7 +34,15 @@ SRC		= ${SRCDIR}ft_memset.c \
 		  ${SRCDIR}ft_putchar_fd.c \
 		  ${SRCDIR}ft_putstr_fd.c \
 		  ${SRCDIR}ft_putendl_fd.c \
-		  ${SRCDIR}ft_putnbr_fd.c
+		  ${SRCDIR}ft_putnbr_fd.c \
+		  ${SRCDIR}ft_lstnew.c \
+		  ${SRCDIR}ft_lstadd_front.c \
+		  ${SRCDIR}ft_lstsize.c \
+		  ${SRCDIR}ft_lstlast.c \
+		  ${SRCDIR}ft_lstadd_back.c \
+		  ${SRCDIR}ft_lstdelone.c \
+		  ${SRCDIR}ft_lstclear.c \
+		  ${SRCDIR}ft_lstiter.c
 
 OBJ		= ${patsubst ${SRCDIR}%.c, ${OBJDIR}%.o, ${SRC}}
 CC		= gcc

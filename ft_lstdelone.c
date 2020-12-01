@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bscamand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 23:41:15 by bscamand          #+#    #+#             */
-/*   Updated: 2020/11/02 23:41:27 by bscamand         ###   ########.fr       */
+/*   Created: 2020/12/01 12:23:38 by bscamand          #+#    #+#             */
+/*   Updated: 2020/12/01 12:23:39 by bscamand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t		dstlen;
-	size_t		i;
-	size_t		len;
-	char		*ptrd;
-	char const	*ptrs;
-
-	ptrd = dst;
-	ptrs = src;
-	i = dstsize;
-	while (i-- > 0 && *ptrd != '\0')
-		ptrd++;
-	dstlen = ptrd - dst;
-	len = dstlen + ft_strlen(src);
-	i = dstsize - dstlen;
-	if (i == 0)
-		return (len);
-	while (*ptrs != '\0' && i != 1)
-	{
-		*ptrd++ = *ptrs++;
-		i--;
-	}
-	*ptrd = '\0';
-	return (len);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }

@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bscamand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 23:41:15 by bscamand          #+#    #+#             */
-/*   Updated: 2020/11/02 23:41:27 by bscamand         ###   ########.fr       */
+/*   Created: 2020/12/01 11:42:18 by bscamand          #+#    #+#             */
+/*   Updated: 2020/12/01 11:42:20 by bscamand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
+int			ft_lstsize(t_list *lst)
 {
-	size_t		dstlen;
-	size_t		i;
-	size_t		len;
-	char		*ptrd;
-	char const	*ptrs;
+	size_t	n;
+	t_list	*ptr;
 
-	ptrd = dst;
-	ptrs = src;
-	i = dstsize;
-	while (i-- > 0 && *ptrd != '\0')
-		ptrd++;
-	dstlen = ptrd - dst;
-	len = dstlen + ft_strlen(src);
-	i = dstsize - dstlen;
-	if (i == 0)
-		return (len);
-	while (*ptrs != '\0' && i != 1)
+	n = 0;
+	if (!lst)
+		return (0);
+	ptr = lst;
+	while (ptr)
 	{
-		*ptrd++ = *ptrs++;
-		i--;
+		ptr = ptr->next;
+		n++;
 	}
-	*ptrd = '\0';
-	return (len);
+	return (n);
 }
